@@ -10,7 +10,6 @@
 
 //重载运算符+，使得Manage_System的二维向量Mang_vector拷贝添加新Window对象的Str
 vector<vector<char> > Manage_System::Add(Window w1){
-
     //Panduan(this,w1);判断z-order,改变字符向量
     //拷贝w1中的Str向量到Mang_vector 
     for(int i=0;i<Mang_vector.size();i++){
@@ -18,7 +17,7 @@ vector<vector<char> > Manage_System::Add(Window w1){
             Mang_vector[w1.coordinates[0]+i][w1.coordinates[1]+j]=w1.Str[i][j];}
     return Mang_vector;
 }
-
+/*
 void Manage_System::Panduan(Window oldW,Window newW){
     if (newW.z_order > oldW.z_order){
         //新窗口左上角和旧窗口右下角重叠
@@ -53,7 +52,7 @@ void Manage_System::Panduan(Window oldW,Window newW){
         }
     }
 }
-
+*/
 void Manage_System::Display(){ //打印输出二维向量
         for(int i=0;i<Mang_vector.size();++i){
             for(int j=0;j<Mang_vector[i].size();++j)
@@ -63,28 +62,33 @@ void Manage_System::Display(){ //打印输出二维向量
 
 void Manage_System::insert(Window &w){
     //对已放入的Window对象逐个与新的Window对象w 进行zorder判断
-    if(WinIn.size()>2){
-        for(int i=0;i<WinIn.size();++i)
-            Panduan(WinIn[i],w);
+    WinIn.push_back(w);
+    if(WinIn.size()>1){
+        //从小到大排序  
+       sort(WinIn.begin(),WinIn.end());
     }
-    /*WinIn.push_back(w);
-      //从小到大排序
-    sort(WinIn.begin(),WinIn.end());*/  
+    
    
   //  Mang_vector= Add(w);
-    WinIn.push_back(w);
+    
 }
 
-void remove(Window &w){
+void Manage_System::remove(Window &w){
     //找到WinIn中的匹配项
     //对zorder小于w的重新逐个resize 
     //从WinIn中删除w
     //Mang_vector?(新建二维向量，for来insert WinIn) ??能恢复WIndow不?
 
 }
-void resize(Window &w, const int top,const int left,const int bottom, const int right){
+void Manage_System::resize(Window &w, const int top,const int left,const int bottom, const int right){
      //找到WinIn中的匹配项
      //resize
      //对zorder小于w的重新逐个resize
      //Mang_vector?(新建二维向量，for来insert WinIn)
 }
+
+/*void Manage_System::Sort(){
+    //根据WinIn的zorder对WinIn排序
+    
+}
+*/

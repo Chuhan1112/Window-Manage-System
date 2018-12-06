@@ -12,15 +12,17 @@
 #include <stdio.h>
 #include "Window.hpp"
 #include <algorithm>
+
+
 class Manage_System{
 public:
-    vector<vector<char> > Mang_vector;
+    static vector<vector<char> > Mang_vector;
     //对象数组，存储放入的Window对象
     vector<Window> WinIn;
         
     void Display();
     //重载运算符+，让连个二维向量相加
-    vector<vector<char> > Manage_System::Add(Window w1);
+    vector<vector<char> > Add(Window w1);
     Manage_System(){//创建一个巨大的二维向量作为边界，初始值为‘ ’
         vector<vector<char>> v1(MAXSIZE);
         for(int i=0;i < v1.size();++i)
@@ -31,10 +33,11 @@ public:
                 v1[i][j]=' ';
         }
         Mang_vector=v1;
-}
+    }
     void Panduan(Window oldW,Window newW);
     void insert(Window &w);
     void remove(Window &w);
     void resize(Window &w, const int top,const int left,const int bottom, const int right);
+    //void Sort();
 };
 #endif /* Manage_System_hpp */
