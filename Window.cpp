@@ -23,7 +23,7 @@ Window::Window(const int top,const int left,const int bottom, const int right, c
     
     //初始化每行vector
     for (int i = 0; i < array.size; i++)
-        array[i].resize(coordinates[3]-coordinates[1]+1);
+        array[i].resize(coordinates[3]-coordinates[1]+1);//width
     //vector赋值
     for(int i = 0; i < array.size; i++)
     {
@@ -37,7 +37,7 @@ Window::Window(const int top,const int left,const int bottom, const int right, c
     Str=array;
 }
 
-//void Window::insert(const int top,const int left,const int bottom, const int right,char x, const int z){
+/*void Window::insert(const int top,const int left,const int bottom, const int right,char x, const int z){
     coordinates[0]=top;coordinates[1]=left;coordinates[2]=bottom;coordinates[3]=right;  //传入方位
     z_order=z;
     str=x;
@@ -62,7 +62,7 @@ Window::Window(const int top,const int left,const int bottom, const int right, c
     Str=array;
 }
 
-//void Window::display(){
+void Window::display(){
     //打印输出
     vector<char>::iterator it;
     vector<vector<char> >::iterator iter;
@@ -87,3 +87,4 @@ Window::Window(const int top,const int left,const int bottom, const int right, c
     }
 }
 
+*/

@@ -7,24 +7,16 @@
 //
 
 #include "Manage_System.hpp"
-Manage_System::Manage_System(){//创建一个巨大的二维向量作为边界，初始值为‘ ’
-        //初始化Mang_vector
-        for(int i=0;int<Mang_vector.size;++i)
-            Mang_vector[i].resize(MAXSIZE);
-        for(int i=0;i<Mang_vector.size;i++){
-            for(int j=0;j<Mang_vector[i].size;j++)
-                Mang_vector[i][j]=' ';
-        }
-}
+
 //重载运算符+，使得Manage_System的二维向量Mang_vector拷贝添加新Window对象的Str
-vector<vector<char> > Manage_System::operator+(Window w1){
-    Manage_System T;//  Mang_vector=Mang_vector+w1
+vector<vector<char> > Manage_System::Add(Window w1){
+
     //Panduan(this,w1);判断z-order,改变字符向量
-    //拷贝w1中的Str向量到Mang_vector
-    for(int i=0;i<it1.size;i++){
-        for(int j=0;i<it1[i].size;j++)
-            T.Mang_vector[w1.top+i][w1.left+j]=w1.Str[i][j];}
-    return T.Mang_vector;
+    //拷贝w1中的Str向量到Mang_vector 
+    for(int i=0;i<Mang_vector.size();i++){
+        for(int j=0;i<Mang_vector[i].size();j++)
+            Mang_vector[w1.coordinates[0]+i][w1.coordinates[1]+j]=w1.Str[i][j];}
+    return Mang_vector;
 }
 
 void Manage_System::Panduan(Window oldW,Window newW){
@@ -63,22 +55,23 @@ void Manage_System::Panduan(Window oldW,Window newW){
 }
 
 void Manage_System::Display(){ //打印输出二维向量
-        vector<vector<char> >::iterator it1;
-        vector<char>::iterator it2;
-        for(it1=Mang_vector.begin();it1!=Mang_vector.end(),it1++){
-            for(it2=it1.begin();it2!=t1.end();it2++)
-                cout<<*t2;
+        for(int i=0;i<Mang_vector.size();++i){
+            for(int j=0;j<Mang_vector[i].size();++j)
+                cout<<Mang_vector[i][j];
         }
 }
 
 void Manage_System::insert(Window &w){
     //对已放入的Window对象逐个与新的Window对象w 进行zorder判断
-    if(WinIn.size>2){
-        for(int i=0;i<T.WinIn.size;++i)
-            Panduan(T.WinIn[i],w1);
+    if(WinIn.size()>2){
+        for(int i=0;i<WinIn.size();++i)
+            Panduan(WinIn[i],w);
     }
-
-    Mang_vector=Mang_vector+w;
+    /*WinIn.push_back(w);
+      //从小到大排序
+    sort(WinIn.begin(),WinIn.end());*/  
+   
+  //  Mang_vector= Add(w);
     WinIn.push_back(w);
 }
 

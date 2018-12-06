@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <string>
-//#include <iostream>
+#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -22,16 +22,16 @@ private:
     int width;//宽度
     int length;//长度
     char str;
- 
+    friend class Manage_System; //设Manage_System为友元类
 public:
     vector<vector<char> > Str;
-
+    
 
     Window(const int top,const int left,const int bottom, const int right, char x, const int z);
     //Window();
     
     //void display();
-//    friend class Manage_System; //设Manage_System为友元类
+    
 };
 
 
