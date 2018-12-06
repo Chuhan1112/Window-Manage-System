@@ -13,16 +13,25 @@
 #include "Window.hpp"
 #include <algorithm>
 
+//重载运算符+，让连个二维向量相加
+vector<vector<char> > Add(Window w1){
+    //Panduan(this,w1);判断z-order,改变字符向量
+    //拷贝w1中的Str向量到Mang_vector
+    Manage_System ms; 
+    for(int i=0;i<ms.Mang_vector.size();i++){
+        for(int j=0;i<ms.Mang_vector[i].size();j++)
+            ms.Mang_vector[w1.coordinates[0]+i][w1.coordinates[1]+j]=w1.Str[i][j];}
+    return ms.Mang_vector;
+}
 
 class Manage_System{
 public:
-    static vector<vector<char> > Mang_vector;
+    vector<vector<char> > Mang_vector;
     //对象数组，存储放入的Window对象
     vector<Window> WinIn;
         
     void Display();
-    //重载运算符+，让连个二维向量相加
-    vector<vector<char> > Add(Window w1);
+    
     Manage_System(){//创建一个巨大的二维向量作为边界，初始值为‘ ’
         vector<vector<char>> v1(MAXSIZE);
         for(int i=0;i < v1.size();++i)

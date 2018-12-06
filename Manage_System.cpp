@@ -9,14 +9,7 @@
 #include "Manage_System.hpp"
 
 //重载运算符+，使得Manage_System的二维向量Mang_vector拷贝添加新Window对象的Str
-vector<vector<char> > Manage_System::Add(Window w1){
-    //Panduan(this,w1);判断z-order,改变字符向量
-    //拷贝w1中的Str向量到Mang_vector 
-    for(int i=0;i<Mang_vector.size();i++){
-        for(int j=0;i<Mang_vector[i].size();j++)
-            Mang_vector[w1.coordinates[0]+i][w1.coordinates[1]+j]=w1.Str[i][j];}
-    return Mang_vector;
-}
+
 /*
 void Manage_System::Panduan(Window oldW,Window newW){
     if (newW.z_order > oldW.z_order){
@@ -68,9 +61,10 @@ void Manage_System::insert(Window &w){
        sort(WinIn.begin(),WinIn.end());
     }
     
-   
-  //  Mang_vector= Add(w);
-    
+    for(int i = 0; i < WinIn.size(); i++)
+    {
+        Mang_vector= Add(WinIn[i]);
+    }
 }
 
 void Manage_System::remove(Window &w){
