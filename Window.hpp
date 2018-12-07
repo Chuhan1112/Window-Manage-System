@@ -25,14 +25,13 @@ public:
     char str;
     vector<vector<char> > Str;
    // friend class Manage_System; //设Manage_System为友元类
-
-    
+ 
     bool operator<(Window w);
     bool operator>(Window w);
     bool operator==(Window w);
     Window(const int top,const int left,const int bottom, const int right, char x, const int z);
     //Window();
-    
+    void Rsize(const int top,const int left,const int bottom, const int right);
     //void display();
     
 };

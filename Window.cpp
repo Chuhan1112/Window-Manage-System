@@ -53,6 +53,7 @@ bool Window::operator==(Window w){
     }else {return false;}
 
 }
+void Window::Rsize(const int top,const int left,const int bottom, const int right){}
 /*void Window::insert(const int top,const int left,const int bottom, const int right,char x, const int z){
     coordinates[0]=top;coordinates[1]=left;coordinates[2]=bottom;coordinates[3]=right;  //传入方位
     z_order=z;
