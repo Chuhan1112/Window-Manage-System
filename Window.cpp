@@ -43,6 +43,16 @@ bool Window::operator>(Window w){
     return z_order>w.z_order;
 }
 //重载==,判断Window对象是否相等
+bool Window::operator==(Window w){
+    if(z_order==w.z_order){ //判断zorder
+       if(str==w.str){      //判断字符
+            if(coordinates==w.coordinates){
+                return true;
+            }else{return false;}
+       }else{return false;} 
+    }else {return false;}
+
+}
 /*void Window::insert(const int top,const int left,const int bottom, const int right,char x, const int z){
     coordinates[0]=top;coordinates[1]=left;coordinates[2]=bottom;coordinates[3]=right;  //传入方位
     z_order=z;

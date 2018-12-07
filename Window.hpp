@@ -29,6 +29,7 @@ public:
     
     bool operator<(Window w);
     bool operator>(Window w);
+    bool operator==(Window w);
     Window(const int top,const int left,const int bottom, const int right, char x, const int z);
     //Window();
     
