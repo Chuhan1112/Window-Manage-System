@@ -11,12 +11,6 @@
 #include "Method.hpp"
 #include "Manage_System.hpp"
 
-short comp(const Window &w1,const Window &w2){
-    return w1.z_order>w2.z_order;
-}
-void Sort(const Window &w1,const Window &w2){
-    sort(w1,w2,comp);
-}
 
 
 int main() {

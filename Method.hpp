@@ -39,8 +39,7 @@ public:
                 cin>>direction[0]>>direction[1]>>direction[2]>>direction[3]>>zorder;
                 cout<<"输入字符"<<endl;
                 cin>>str;
-                Window w1;
-                w1.insert(direction[0], direction[1], direction[2], direction[3], str, zorder);
+                Window w1(direction[0], direction[1], direction[2], direction[3], str, zorder);
                 //w1.display();
                 break;
             }

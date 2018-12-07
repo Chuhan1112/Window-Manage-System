@@ -9,6 +9,15 @@
 #include "Manage_System.hpp"
 
 //重载运算符+，使得Manage_System的二维向量Mang_vector拷贝添加新Window对象的Str
+vector<vector<char> > Add(Window w1){
+    //Panduan(this,w1);判断z-order,改变字符向量
+    //拷贝w1中的Str向量到Mang_vector
+    Manage_System ms;
+    for(int i=0;i<ms.Mang_vector.size();i++){
+        for(int j=0;i<ms.Mang_vector[i].size();j++)
+            ms.Mang_vector[w1.coordinates[0]+i][w1.coordinates[1]+j]=w1.Str[i][j];}
+    return ms.Mang_vector;
+}
 
 /*
 void Manage_System::Panduan(Window oldW,Window newW){
@@ -72,7 +81,19 @@ void Manage_System::remove(Window &w){
     //对zorder小于w的重新逐个resize 
     //从WinIn中删除w
     //Mang_vector?(新建二维向量，for来insert WinIn) ??能恢复WIndow不?
-
+    //if(WinIN)
+    vector<Window>::iterator it;
+    it = find(WinIn.begin(),WinIn.end(),w);//查找元素
+    if(it==WinIn.end())                    //判断元素是否存在
+        cout<<"窗口不存在"<<endl;
+    else{
+        for(it=WinIn.begin();it!=WinIn.end();){
+            if(*it==w)
+                it=WinIn.erase(it);
+            else
+                ++it;
+    }
+    }
 }
 void Manage_System::resize(Window &w, const int top,const int left,const int bottom, const int right){
      //找到WinIn中的匹配项

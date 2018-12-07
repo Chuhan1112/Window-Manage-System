@@ -16,17 +16,19 @@
 using namespace std;
 
 class Window{
-private:
+public:
+    
     int coordinates[4];      //方位（top,left,bottom,right)
     int z_order;            //z-order
     int width;//宽度
     int length;//长度
     char str;
-    friend class Manage_System; //设Manage_System为友元类
-public:
     vector<vector<char> > Str;
-    
+   // friend class Manage_System; //设Manage_System为友元类
 
+    
+    bool operator<(Window w);
+    bool operator>(Window w);
     Window(const int top,const int left,const int bottom, const int right, char x, const int z);
     //Window();
     
