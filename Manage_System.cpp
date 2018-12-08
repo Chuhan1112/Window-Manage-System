@@ -57,6 +57,7 @@ void Manage_System::Panduan(Window oldW,Window newW){
 */
 void Manage_System::Display(){ //打印输出二维向量
         for(int i=0;i<Mang_vector.size();++i){
+            cout<<endl;
             for(int j=0;j<Mang_vector[i].size();++j)
                 cout<<Mang_vector[i][j];
         }
@@ -67,7 +68,7 @@ void Manage_System::insert(Window &w){
     WinIn.push_back(w);
     if(WinIn.size()>1){
         //从小到大排序  
-       sort(WinIn.begin(),WinIn.end());
+       sort(WinIn.begin(),WinIn.end(),Cmp());
     }
     
     for(int i = 0; i < WinIn.size(); i++)
@@ -85,12 +86,27 @@ void Manage_System::remove(Window &w){
     if(it==WinIn.end())                    //判断元素是否存在
         cout<<"窗口不存在"<<endl;
     else{
+        vector<vector<char> > re_vector;
         for(it=WinIn.begin();it!=WinIn.end();){
-            if(*it==w)
+            if(*it==w){
                 it=WinIn.erase(it);
+                //初始化re_vector
+                for(int i=0;i < re_vector.size();++i)
+                    re_vector[i].resize(MAXSIZE);
+            
+                for(int i=0;i<re_vector.size();i++){
+                    for(int j=0;j<re_vector[0].size();j++)
+                        re_vector[i][j]=' ';
+                }
+                //将重拍后的WinIn放入re_vector中
+                for(int i = 0; i < WinIn.size(); i++){
+                    Mang_vector= Add(WinIn[i]);
+                }
+                Mang_vector=re_vector;
+            }
             else
                 ++it;
-    }
+        }
     }
 }
 void Manage_System::resize(Window &w, const int newtop,const int newleft,const int newbottom, const int newright){
@@ -109,6 +125,11 @@ void Manage_System::resize(Window &w, const int newtop,const int newleft,const i
     }
 }
 
+bool Cmp::operator()(Window &w1, Window &w2){
+    if(w1<w2){
+        return true;}
+    return false;
+}
 /*void Manage_System::Sort(){
     //根据WinIn的zorder对WinIn排序
     

@@ -21,15 +21,6 @@ private:
 public:
     
     Method(){
-        //Management_System WS;
-        cout<<"==========================================="<<endl;
-        cout<<"          欢迎使用命令行窗口管理系统,请输入命令   "<<endl;
-        cout<<"          命令列表："<<endl;
-        cout<<"          1. insert             "<<endl;
-        cout<<"          2. remove             "<<endl;
-        cout<<"          3. resize             "<<endl;
-        cout<<"          4. quit             "<<endl;
-        cout<<"==========================================="<<endl;
         //判断指令
         cin>>n;
         switch (n) {

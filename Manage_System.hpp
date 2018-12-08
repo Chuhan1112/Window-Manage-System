@@ -24,8 +24,8 @@ public:
         
     void Display();
     
-    Manage_System(){//构造函数，创建一个巨大的二维向量作为边界，初始值为‘ ’
-        vector<vector<char>> v1(MAXSIZE);
+    Manage_System(){//构造函数，创建一个巨大的二维向量Mang_vector作为边界，初始值为‘ ’
+        vector<vector<char> > v1(MAXSIZE);
         for(int i=0;i < v1.size();++i)
             v1[i].resize(MAXSIZE);
             
@@ -40,5 +40,11 @@ public:
     void remove(Window &w);
     void resize(Window &w, const int top,const int left,const int bottom, const int right);
     //void Sort();
+};
+
+class Cmp{
+public:
+    int var;
+    bool operator()(Window &w1, Window &w2);
 };
 #endif /* Manage_System_hpp */

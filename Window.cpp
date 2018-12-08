@@ -30,7 +30,7 @@ Window::Window(const int top,const int left,const int bottom, const int right, c
         //赋值
         for (int j = 0; j < array[0].size();j++)
         {
-            array[i][j] = x;
+            array[i][j] = str;
         }
     }
     //将array结果传给对象
@@ -53,7 +53,25 @@ bool Window::operator==(Window w){
     }else {return false;}
 
 }
-void Window::Rsize(const int top,const int left,const int bottom, const int right){}
+void Window::Rsize(const int top,const int left,const int bottom, const int right){
+    coordinates[0]=top;coordinates[1]=left;coordinates[2]=bottom;coordinates[3]=right;
+     vector<vector<char> > array(coordinates[2]-coordinates[0]+1);//length
+    
+    //初始化每行vector
+    for (int i = 0; i < array.size(); i++)
+        array[i].resize(coordinates[3]-coordinates[1]+1);//width
+    //vector赋值
+    for(int i = 0; i < array.size(); i++)
+    {
+        //赋值
+        for (int j = 0; j < array[0].size();j++)
+        {
+            array[i][j] = str;
+        }
+    }
+    //将array结果传给对象
+    Str=array;
+}
 /*void Window::insert(const int top,const int left,const int bottom, const int right,char x, const int z){
     coordinates[0]=top;coordinates[1]=left;coordinates[2]=bottom;coordinates[3]=right;  //传入方位
     z_order=z;
