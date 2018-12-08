@@ -33,7 +33,7 @@ int main() {
         else if(instruction=="remove"){n1 = 2;}
         else if(instruction=="resize"){n1 = 3;}
         else if(instruction=="quit"){n1 = 4;}
-
+        else{n1=4;}
         Method();
         s.Display();
         cout<<"           请继续输入命令   "<<endl;
