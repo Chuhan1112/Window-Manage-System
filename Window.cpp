@@ -39,6 +39,7 @@ Window::Window(const int top,const int left,const int bottom, const int right, c
 bool Window::operator<(Window w){
     return z_order<w.z_order;
 }
+
 bool Window::operator>(Window w){
     return z_order>w.z_order;
 }
@@ -46,7 +47,7 @@ bool Window::operator>(Window w){
 bool Window::operator==(Window w){
     if(z_order==w.z_order){ //判断zorder
        if(str==w.str){      //判断字符
-            if(coordinates==w.coordinates){
+            if(equal(begin(coordinates), end(coordinates), begin(w.coordinates))) {     //利用equal比较数组
                 return true;
             }else{return false;}
        }else{return false;} 

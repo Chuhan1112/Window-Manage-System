@@ -61,19 +61,17 @@ void Manage_System::insert(Window &w){
 void Manage_System::remove(Window &w){
     //找到WinIn中的匹配项
     //从WinIn中删除w
-    //Mang_vecto(新建二维向量，for来insert WinIn)->WinIn ??能恢复WIndow不?
     vector<Window>::iterator it;
-    it = find(WinIn.begin(),WinIn.end(),w);//查找元素
-    if(it==WinIn.end())                    //判断元素是否存在
-        cout<<"窗口不存在"<<endl;
-    else{
-        for(it=WinIn.begin();it!=WinIn.end();){
-            if(*it==w)
-                it=WinIn.erase(it);
-            else
-                ++it;
+    for (it=WinIn.begin(); it!=WinIn.end(); ++it) {
+        if(*it==w){
+            WinIn.erase(it);
+            for(int i = 0; i < WinIn.size(); i++)
+                Mang_vector= *this+Add(WinIn[i]);
+            break;
         }
     }
+    if(it==WinIn.end())                    //判断元素是否存在
+        cout<<"窗口不存在"<<endl;
 }
 void Manage_System::resize(Window &w, const int newtop,const int newleft,const int newbottom, const int newright){
      //找到WinIn中的匹配项
@@ -96,8 +94,12 @@ bool Cmp::operator()(Window &w1, Window &w2){
         return true;}
     return false;
 }
-/*void Manage_System::Sort(){
-    //根据WinIn的zorder对WinIn排序
-    
+
+/*//定义Window对象比较规则
+bool Find::operator()(Window &w1, Window &w2){
+    if(w1==w2){
+        return true;
+    }
+    return false;
 }
 */

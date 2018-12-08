@@ -8,7 +8,7 @@
 
 #ifndef Manage_System_hpp
 #define Manage_System_hpp
-#define MAXSIZE 40
+#define MAXSIZE 20
 #include <stdio.h>
 #include "Window.hpp"
 #include <algorithm>
@@ -47,4 +47,14 @@ public:
     int var;
     bool operator()(Window &w1, Window &w2);
 };
+
+/*
+class Find{
+private:
+    Window w;
+public:
+    Find(Window &w1){w=w1;}
+    bool operator()(Window &w1, Window &w2);
+};
+ */
 #endif /* Manage_System_hpp */

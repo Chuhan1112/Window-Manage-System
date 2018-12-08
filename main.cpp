@@ -54,6 +54,10 @@ void Method(){
         {
             cout<<"输入方位（top,left,bottom,right)和zorder"<<endl;
             cin>>direction[0]>>direction[1]>>direction[2]>>direction[3]>>zorder;
+            if (direction[0]>direction[2] || direction[1]>direction[3]) {
+                cout<<"输入出错：下边小于上边或者右边小于左边"<<endl;
+                break;
+            }
             cout<<"输入字符"<<endl;
             cin>>str;
             cout<<"----------------------------------------------"<<endl;
