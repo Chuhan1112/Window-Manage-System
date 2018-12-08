@@ -18,7 +18,7 @@
 
 class Manage_System{
 public:
-    static vector<vector<char> > Mang_vector;
+    vector<vector<char> > Mang_vector;
     //对象数组，存储放入的Window对象
     vector<Window> WinIn;
         

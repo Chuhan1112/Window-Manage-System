@@ -19,10 +19,44 @@ vector<vector<char> > Add(Window w1){
     return ms.Mang_vector;
 }
 
-
+/*
+void Manage_System::Panduan(Window oldW,Window newW){
+    if (newW.z_order > oldW.z_order){
+        //新窗口左上角和旧窗口右下角重叠
+        if(newW.coordinates[0]<oldW.coordinates[2] && newW.coordinates[1]<oldW.coordinates[3]){
+            int temp1=newW.coordinates[0]-oldW.coordinates[2]+1;//重叠行数
+            int temp2=newW.coordinates[1]-oldW.coordinates[3]+1;//重叠列数
+            for(int i=0; i<temp1;++i) //例子：新10 旧8 temp2=3; oldW.length-temp1=长度-3；oldW.length-temp1+i=8,9,10,对应vector里的7,8,9
+                oldW.Str[oldW.length-temp1+i-1].resize(oldW.width-temp2);
+        }
+        //新窗口右下角和旧窗口左上角重叠
+        if(newW.coordinates[2]>oldW.coordinates[0] && newW.coordinates[3]>oldW.coordinates[1]){
+            int temp1=newW.coordinates[2]-oldW.coordinates[0]+1;
+            int temp2=newW.coordinates[3]-oldW.coordinates[1]+1;
+            for(int i=0; i<temp1;++i)
+                oldW.Str[oldW.length-temp1+i-1].resize(oldW.width-temp2);
+        }
+    }
+    if (newW.z_order<oldW.z_order){
+        //新窗口左上角和旧窗口右下角重叠
+        if(newW.coordinates[0]<oldW.coordinates[2] && newW.coordinates[1]<oldW.coordinates[3]){
+            int temp1=oldW.coordinates[2]-newW.coordinates[0]+1;
+            int temp2=newW.coordinates[1]-oldW.coordinates[3]+1;
+            for(int i=0; i<temp1;++i)
+                newW.Str[newW.length-temp1+i-1].resize(newW.width-temp2);
+        }
+        //新窗口右下角和旧窗口左上角重叠
+        if(newW.coordinates[2]>oldW.coordinates[0] && newW.coordinates[3]>oldW.coordinates[1]){
+            int temp1=newW.coordinates[2]-oldW.coordinates[0]+1;
+            int temp2=newW.coordinates[3]-oldW.coordinates[1]+1;
+            for(int i=0; i<temp1;++i)
+                newW.Str[newW.length-temp1+i-1].resize(newW.width-temp2);
+        }
+    }
+}
+*/
 void Manage_System::Display(){ //打印输出二维向量
         for(int i=0;i<Mang_vector.size();++i){
-            cout<<endl;
             for(int j=0;j<Mang_vector[i].size();++j)
                 cout<<Mang_vector[i][j];
         }
