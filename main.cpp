@@ -28,16 +28,15 @@ int main() {
     cout<<"==========================================="<<endl; 
 
     while(1){
+        cout<<"           请继续输入命令   "<<endl;
         cin>>instruction;
         if (instruction=="insert"){n1 = 1;}
         else if(instruction=="remove"){n1 = 2;}
         else if(instruction=="resize"){n1 = 3;}
         else if(instruction=="quit"){n1 = 4;}
-        else{n1=4;}
+        else{n1=5;}
         Method();
         s.Display();
-        cout<<"           请继续输入命令   "<<endl;
-        return 0;
     }
     
     
@@ -57,12 +56,14 @@ void Method(){
             cin>>direction[0]>>direction[1]>>direction[2]>>direction[3]>>zorder;
             cout<<"输入字符"<<endl;
             cin>>str;
+            cout<<"----------------------------------------------"<<endl;
             Window w(direction[0], direction[1], direction[2], direction[3], str, zorder);
             s.insert(w);
             break;
         }
         case 2:
-        {   
+        {
+            cout<<"输入方位（top,left,bottom,right)和zorder"<<endl;
             cin>>direction[0]>>direction[1]>>direction[2]>>direction[3]>>zorder;
             cout<<"输入字符"<<endl;
             cin>>str;

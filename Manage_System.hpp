@@ -39,7 +39,7 @@ public:
     void insert(Window &w);
     void remove(Window &w);
     void resize(Window &w, const int top,const int left,const int bottom, const int right);
-    //void Sort();
+    vector<vector<char> > operator+(vector<vector<char> > v1);
 };
 
 class Cmp{

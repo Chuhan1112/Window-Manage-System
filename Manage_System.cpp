@@ -18,13 +18,29 @@ vector<vector<char> > Add(Window w1){
             ms.Mang_vector[w1.coordinates[0]+i][w1.coordinates[1]+j]=w1.Str[i][j];} //有问题
     return ms.Mang_vector;
 }
-
+//重载+号
+vector<vector<char> > Manage_System::operator+(vector<vector<char> > v1){
+    vector<vector<char> > temp(MAXSIZE);
+    for (int i=0; i<MAXSIZE; i++)
+        temp[i].resize(MAXSIZE);
+    
+    for (int i=0; i<MAXSIZE; i++) {
+        for (int j=0; j<MAXSIZE; j++) {
+            if (Mang_vector[i][j]!=' '&& v1[i][j]==' ') {
+                temp[i][j]=Mang_vector[i][j];
+            }else{temp[i][j]=v1[i][j];}
+        }
+    }
+    return temp;
+}
 
 void Manage_System::Display(){ //打印输出二维向量
         for(int i=0;i<Mang_vector.size();++i){
+            cout<<endl;
             for(int j=0;j<Mang_vector[i].size();++j)
                 cout<<Mang_vector[i][j];
         }
+    cout<<endl;
 }
 
 void Manage_System::insert(Window &w){
@@ -32,13 +48,14 @@ void Manage_System::insert(Window &w){
     WinIn.push_back(w);
     if(WinIn.size()>1){
         //从小到大排序  
-       sort(WinIn.begin(),WinIn.end(),Cmp());
-    }
-    
-    for(int i = 0; i < WinIn.size(); i++)
-    {
-        Mang_vector= Add(WinIn[i]);
-    }
+        sort(WinIn.begin(),WinIn.end(),Cmp());
+        
+        for(int i = 0; i < WinIn.size(); i++)
+        {
+            Mang_vector= *this+Add(WinIn[i]);
+        }
+    }else{Mang_vector=Add(WinIn[0]);}
+   
 }
 
 void Manage_System::remove(Window &w){
