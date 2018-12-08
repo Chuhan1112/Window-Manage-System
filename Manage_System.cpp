@@ -19,42 +19,7 @@ vector<vector<char> > Add(Window w1){
     return ms.Mang_vector;
 }
 
-/*
-void Manage_System::Panduan(Window oldW,Window newW){
-    if (newW.z_order > oldW.z_order){
-        //新窗口左上角和旧窗口右下角重叠
-        if(newW.coordinates[0]<oldW.coordinates[2] && newW.coordinates[1]<oldW.coordinates[3]){
-            int temp1=newW.coordinates[0]-oldW.coordinates[2]+1;//重叠行数
-            int temp2=newW.coordinates[1]-oldW.coordinates[3]+1;//重叠列数
-            for(int i=0; i<temp1;++i) //例子：新10 旧8 temp2=3; oldW.length-temp1=长度-3；oldW.length-temp1+i=8,9,10,对应vector里的7,8,9
-                oldW.Str[oldW.length-temp1+i-1].resize(oldW.width-temp2);
-        }
-        //新窗口右下角和旧窗口左上角重叠
-        if(newW.coordinates[2]>oldW.coordinates[0] && newW.coordinates[3]>oldW.coordinates[1]){
-            int temp1=newW.coordinates[2]-oldW.coordinates[0]+1;
-            int temp2=newW.coordinates[3]-oldW.coordinates[1]+1;
-            for(int i=0; i<temp1;++i)
-                oldW.Str[oldW.length-temp1+i-1].resize(oldW.width-temp2);
-        }
-    }
-    if (newW.z_order<oldW.z_order){
-        //新窗口左上角和旧窗口右下角重叠
-        if(newW.coordinates[0]<oldW.coordinates[2] && newW.coordinates[1]<oldW.coordinates[3]){
-            int temp1=oldW.coordinates[2]-newW.coordinates[0]+1;
-            int temp2=newW.coordinates[1]-oldW.coordinates[3]+1;
-            for(int i=0; i<temp1;++i)
-                newW.Str[newW.length-temp1+i-1].resize(newW.width-temp2);
-        }
-        //新窗口右下角和旧窗口左上角重叠
-        if(newW.coordinates[2]>oldW.coordinates[0] && newW.coordinates[3]>oldW.coordinates[1]){
-            int temp1=newW.coordinates[2]-oldW.coordinates[0]+1;
-            int temp2=newW.coordinates[3]-oldW.coordinates[1]+1;
-            for(int i=0; i<temp1;++i)
-                newW.Str[newW.length-temp1+i-1].resize(newW.width-temp2);
-        }
-    }
-}
-*/
+
 void Manage_System::Display(){ //打印输出二维向量
         for(int i=0;i<Mang_vector.size();++i){
             cout<<endl;
@@ -86,24 +51,9 @@ void Manage_System::remove(Window &w){
     if(it==WinIn.end())                    //判断元素是否存在
         cout<<"窗口不存在"<<endl;
     else{
-        vector<vector<char> > re_vector;
         for(it=WinIn.begin();it!=WinIn.end();){
-            if(*it==w){
+            if(*it==w)
                 it=WinIn.erase(it);
-                //初始化re_vector
-                for(int i=0;i < re_vector.size();++i)
-                    re_vector[i].resize(MAXSIZE);
-            
-                for(int i=0;i<re_vector.size();i++){
-                    for(int j=0;j<re_vector[0].size();j++)
-                        re_vector[i][j]=' ';
-                }
-                //将重拍后的WinIn放入re_vector中
-                for(int i = 0; i < WinIn.size(); i++){
-                    Mang_vector= Add(WinIn[i]);
-                }
-                Mang_vector=re_vector;
-            }
             else
                 ++it;
         }
