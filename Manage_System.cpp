@@ -10,7 +10,6 @@
 
 //重载运算符+，使得Manage_System的二维向量Mang_vector拷贝添加新Window对象的Str
 vector<vector<char> > Add(Window w1){
-    //Panduan(this,w1);判断z-order,改变字符向量
     //拷贝w1中的Str向量到Mang_vector
     Manage_System ms;
     for(int i=0;i<w1.length;i++){
@@ -76,7 +75,7 @@ void Manage_System::remove(Window &w){
     }
     if(it==WinIn.end()){                    //判断元素是否存在
         if(*WinIn.end()==w){
-            cout<<"窗口已删除"<<endl;
+//            cout<<"窗口已删除"<<endl;
         }else{cout<<"窗口不存在"<<endl;}
     }
 }
@@ -101,6 +100,7 @@ void Manage_System::resize(Window &w, const int newtop,const int newleft,const i
     }
 }
 
+//STL sort的判断函数
 bool Cmp::operator()(Window &w1, Window &w2){
     if(w1<w2){
         return true;}
