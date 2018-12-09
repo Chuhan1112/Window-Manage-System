@@ -12,9 +12,13 @@
 vector<vector<char> > Add(Window w1){
     //拷贝w1中的Str向量到Mang_vector
     Manage_System ms;
-    for(int i=0;i<w1.length;i++){
-        for(int j=0;j<w1.width;j++)
-            ms.Mang_vector[w1.coordinates[0]+i][w1.coordinates[1]+j]=w1.Str[i][j];} //有问题
+    if(w1.coordinates[2]<MAXSIZE && w1.coordinates[3]<MAXSIZE){
+        for(int i=0;i<w1.length;i++){
+            for(int j=0;j<w1.width;j++){
+                ms.Mang_vector[w1.coordinates[0]+i][w1.coordinates[1]+j]=w1.Str[i][j];
+            }
+        }//有问题
+    }else{cout<<"错误：超出边界"<<endl;}
     return ms.Mang_vector;
 }
 //重载+号

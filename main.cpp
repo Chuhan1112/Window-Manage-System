@@ -29,6 +29,7 @@ int main() {
 
     while(1){
         cout<<"           请继续输入命令   "<<endl;
+        try{
         cin>>instruction;
         if (instruction=="insert"){n1 = 1;}
         else if(instruction=="remove"){n1 = 2;}
@@ -36,6 +37,7 @@ int main() {
         else if(instruction=="quit"){n1 = 4;}
         else{n1=5;}
         Method();
+        }catch(length_error &le){cout<<"指令出错"<<endl;}
         s.Display();
         cout<<"----------------------------------------------"<<endl;
     }
@@ -52,7 +54,7 @@ void Method(){
 
     switch (n1) {
         case 1:
-        {
+        {try{
             cout<<"输入方位（top,left,bottom,right)和zorder"<<endl;
             cin>>direction[0]>>direction[1]>>direction[2]>>direction[3]>>zorder;
             if (direction[0]>direction[2] || direction[1]>direction[3]) {
@@ -65,7 +67,10 @@ void Method(){
             Window w(direction[0], direction[1], direction[2], direction[3], str, zorder);
             s.insert(w);
             break;
+            }catch(length_error &le){
+                cout<<"输入出错"<<endl;}
         }
+        
             
         case 2:
         {
