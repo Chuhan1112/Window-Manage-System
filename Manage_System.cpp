@@ -83,14 +83,16 @@ void Manage_System::resize(Window &w, const int newtop,const int newleft,const i
      //对zorder小于w的重新逐个resize
      //Mang_vector?(新建二维向量，for来insert WinIn)
     vector<Window>::iterator it;
-    it = find(WinIn.begin(),WinIn.end(),w);//查找元素
+    for (it=WinIn.begin(); it!=WinIn.end(); ++it) {
+        if(*it==w){
+            remove(w);
+            w.Rsize(newtop, newleft, newbottom, newright);
+            insert(w);
+            break;
+        }
+    }
     if(it==WinIn.end())                    //判断元素是否存在
         cout<<"窗口不存在"<<endl;
-    else{
-        remove(w);
-        w.Rsize(newtop, newleft, newbottom, newright);
-        insert(w);
-    }
 }
 
 bool Cmp::operator()(Window &w1, Window &w2){

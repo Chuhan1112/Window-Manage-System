@@ -65,6 +65,7 @@ void Method(){
             s.insert(w);
             break;
         }
+            
         case 2:
         {
             cout<<"输入方位（top,left,bottom,right)和zorder"<<endl;
