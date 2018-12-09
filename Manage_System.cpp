@@ -34,6 +34,9 @@ vector<vector<char> > Manage_System::operator+(vector<vector<char> > v1){
     return temp;
 }
 
+
+
+
 void Manage_System::Display(){ //打印输出二维向量
         for(int i=0;i<Mang_vector.size();++i){
             cout<<endl;
@@ -65,6 +68,7 @@ void Manage_System::remove(Window &w){
     for (it=WinIn.begin(); it!=WinIn.end(); ++it) {
         if(*it==w){
             WinIn.erase(it);
+            Mang_vector=Emptyvector;        //取得一个空表
             for(int i = 0; i < WinIn.size(); i++)
                 Mang_vector= *this+Add(WinIn[i]);
             break;

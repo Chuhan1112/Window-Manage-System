@@ -18,10 +18,10 @@
 
 class Manage_System{
 public:
-    vector<vector<char> > Mang_vector;
+    vector<vector<char> > Mang_vector, Emptyvector;
     //对象数组，存储放入的Window对象
     vector<Window> WinIn;
-        
+    
     void Display();
     
     Manage_System(){//构造函数，创建一个巨大的二维向量Mang_vector作为边界，初始值为‘ ’
@@ -34,6 +34,7 @@ public:
                 v1[i][j]=' ';
         }
         Mang_vector=v1;
+        Emptyvector=v1;
     }
     void Panduan(Window oldW,Window newW);
     void insert(Window &w);
