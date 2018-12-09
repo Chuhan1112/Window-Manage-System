@@ -74,8 +74,11 @@ void Manage_System::remove(Window &w){
             break;
         }
     }
-    if(it==WinIn.end())                    //判断元素是否存在
-        cout<<"窗口不存在"<<endl;
+    if(it==WinIn.end()){                    //判断元素是否存在
+        if(*WinIn.end()==w){
+            cout<<"窗口已删除"<<endl;
+        }else{cout<<"窗口不存在"<<endl;}
+    }
 }
 void Manage_System::resize(Window &w, const int newtop,const int newleft,const int newbottom, const int newright){
      //找到WinIn中的匹配项
@@ -91,8 +94,11 @@ void Manage_System::resize(Window &w, const int newtop,const int newleft,const i
             break;
         }
     }
-    if(it==WinIn.end())                    //判断元素是否存在
-        cout<<"窗口不存在"<<endl;
+    if(it==WinIn.end()){                    //判断元素是否存在
+        if(*WinIn.end()==w){
+            cout<<"窗口方位已改变"<<endl;
+        }else{cout<<"窗口不存在"<<endl;}
+    }
 }
 
 bool Cmp::operator()(Window &w1, Window &w2){
