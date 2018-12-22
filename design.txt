@@ -1,0 +1,33 @@
+class:
+
+-Manage_System : 
+*成员变量：	
+	整个窗口区域，生成一个二维vector（Mang_vector）用来存放Window类的Str（含字符的二维vector）
+	一个vector（WinIN）存放Window类对象
+
+*成员函数：insert, remove, resize,分别对应相应的插入、删除、调整窗口操作
+	Display:打印输出整个窗口区域（打印Mang_vector）
+
+
+-Window
+*成员变量：
+	coordinate：长度为4的数组，存放窗口的方位（top, left, bottom, right）
+	z_order:z轴坐标
+	width、length：对应窗口长度、宽度
+	str:窗口所对应的字符
+
+*成员函数：
+	operator<、operator>：重载运算符，判断两个Window的z_order大小
+	operator==：重载运算符，判断Window对象是否相等
+	Window：构造函数，生成Window，并赋方位、z_order、str值
+	Rsize：调整Window的方位值
+
+-Cmp
+*成员函数：
+	operator()：重载（）,判断两个Window对象的z_order大小，在调用STL排序函数sort时调用此规则
+
+全局函数：
+	Add：使得Manage_System的二维向量Mang_vector拷贝添加新Window对象的Str，在Manage_System::insert中调用它
+
+	Method：作出四个选项，对输入的instruction进行反应，完成相应的插入、删除、调整、退出窗口操作，在main函数中循环
+	
