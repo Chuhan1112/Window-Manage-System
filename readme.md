@@ -1,10 +1,10 @@
 WHU计算机学院C++大作业
 # How to use Window Manage System?
 
-输入指令insert/remove/resize/quit根据进一步提示输入窗口坐标
+输入指令`insert`/`remove`/`resize`/`quit`根据进一步提示输入窗口坐标
 
 ### insert:
-	输入top, left, bottom, right和z轴大小z_order(注意⚠️：bottom大于top，right大于left)
+	输入top, left, bottom, right和z轴大小z_order(注意⚠️：bottom大于top，right大于left,目前上限设置的是20)
 	输入组成窗口的字符（如 % ^ * $）
 
 ### remove:
